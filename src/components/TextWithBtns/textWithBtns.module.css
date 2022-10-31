@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  width: 330px;
+  height: 100px;
+  padding: 5px;
+}
+.container > :not(:first-child) {
+  margin-left: 10px;
+}
+.leftSide,
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  background-color: pink;
+  min-width: 100px;
+}
+.leftSide > :not(:first-child),
+.rightSide > :not(:first-child) {
+  margin-top: 5px;
+}
+.button {
+  width: 100%;
+}
+.text {
+  background-color: white;
+}
