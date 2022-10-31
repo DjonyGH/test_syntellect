@@ -1,26 +1,57 @@
 import React from 'react'
 import './App.css'
+import Autocomplete from './components/Autocomplete/Autocomplete'
 import TextWithBtns from './components/TextWithBtns/TextWithBtns'
 
 function App() {
   return (
-    <div>
-      <TextWithBtns
-        rightSideButtons={[
-          {
-            text: 'clear',
-            callback: (setInputText) => {
-              setInputText('')
-            },
-          },
-          {
-            text: 'hello world',
-            callback: (setInputText) => {
-              setInputText('Hello world!')
-            },
-          },
-        ]}
-      />
+    <div className='App'>
+      <div>
+        <h1>First task</h1>
+        <div className='content'>
+          <TextWithBtns
+            rightSideButtons={[
+              {
+                text: 'clear',
+                callback: (_, setInputText) => {
+                  setInputText('')
+                },
+              },
+              {
+                text: 'hello world',
+                callback: (_, setInputText) => {
+                  setInputText('Hello world!')
+                },
+              },
+            ]}
+          />
+          <TextWithBtns
+            rightSideButtons={[
+              {
+                text: 'alert',
+                callback: (text) => {
+                  alert(text)
+                },
+              },
+            ]}
+            leftSideButtons={[
+              {
+                text: 'number alert',
+                callback: (text) => {
+                  if (!isNaN(parseFloat(text)) && isFinite(+text)) alert(text)
+                },
+              },
+            ]}
+          />
+        </div>
+      </div>
+      <div>
+        <h1>Second task</h1>
+        <div className='content'>
+          <Autocomplete minSearchLength={1} maxItems={3} />
+          <Autocomplete minSearchLength={1} maxItems={10} />
+        </div>
+      </div>
     </div>
   )
 }

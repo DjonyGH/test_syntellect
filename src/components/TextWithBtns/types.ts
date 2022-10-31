@@ -1,4 +1,4 @@
 export interface IBtn {
   text: string
-  callback: (setInputText: (text: string) => void) => void
+  callback: (text: string, setInputText: (text: string) => void) => void
 }

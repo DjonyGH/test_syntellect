@@ -9,19 +9,25 @@ interface IProps {
 
 const TextWithBtns: React.FC<IProps> = ({ leftSideButtons, rightSideButtons }) => {
   const [inputText, setInputText] = useState<string>('')
+
+  const handleValueChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const text = e.target.value
+    setInputText(text)
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.leftSide}>
         {leftSideButtons?.map((btn: IBtn, idx: number) => (
-          <button onClick={() => btn.callback(setInputText)} className={styles.button} key={idx}>
+          <button onClick={() => btn.callback(inputText, setInputText)} className={styles.button} key={idx}>
             {btn.text}
           </button>
         ))}
       </div>
-      <div className={styles.text}>{inputText}</div>
+      <input type='text' onChange={handleValueChange} value={inputText} className={styles.text} />
       <div className={styles.rightSide}>
         {rightSideButtons?.map((btn: IBtn, idx: number) => (
-          <button onClick={() => btn.callback(setInputText)} className={styles.button} key={idx}>
+          <button onClick={() => btn.callback(inputText, setInputText)} className={styles.button} key={idx}>
             {btn.text}
           </button>
         ))}
