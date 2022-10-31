@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { getCountryByName } from '../../api/apiService'
 import styles from './autocomplete.module.css'
+import AutocompleteItem from './components/AutocompleteItem'
 import { ICountry } from './types'
 
 // Если бы на проекте была необходимость делать автокоплиты для разных сущностей, не только для стран,
@@ -51,18 +52,7 @@ const Autocomplete: React.FC<IProps> = ({ maxItems = 3, minSearchLength = 2 }) =
   return (
     <div className={styles.container}>
       {selectedItem ? (
-        <div className={styles.item}>
-          <img src={selectedItem.flag} />
-          <div>
-            <div>
-              <b>{selectedItem.fullName}</b>
-            </div>
-            <div>{selectedItem.name}</div>
-          </div>
-          <div className={styles.close} onClick={() => handleClearItem()}>
-            x
-          </div>
-        </div>
+        <AutocompleteItem isInList={false} clearItem={handleClearItem} item={selectedItem} />
       ) : (
         <div className={styles.mockItem}>Select country</div>
       )}
@@ -70,15 +60,7 @@ const Autocomplete: React.FC<IProps> = ({ maxItems = 3, minSearchLength = 2 }) =
       <input type='text' onChange={handleValueChange} value={searchText} />
 
       {items.map((item: ICountry, idx: number) => (
-        <div key={idx} className={`${styles.item} ${styles.itemWithBorder}`} onClick={() => handleSelectItem(item)}>
-          <img src={item.flag} />
-          <div>
-            <div>
-              <b>{item.fullName}</b>
-            </div>
-            <div>{item.name}</div>
-          </div>
-        </div>
+        <AutocompleteItem isInList={true} selectItem={() => handleSelectItem(item)} item={item} key={idx} />
       ))}
     </div>
   )

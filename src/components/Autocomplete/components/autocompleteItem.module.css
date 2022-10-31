@@ -1,0 +1,28 @@
+.item {
+  display: flex;
+  width: 100%;
+  min-height: 50px;
+  margin: 5px 0;
+  padding: 10px 0;
+  position: relative;
+}
+.inList {
+  cursor: pointer;
+  border-bottom: 1px solid black;
+}
+.item > :first-child {
+  margin-right: 10px;
+  width: 50px;
+  height: 50px;
+}
+.close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
