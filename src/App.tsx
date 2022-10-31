@@ -3,6 +3,8 @@ import './App.css'
 import Autocomplete from './components/Autocomplete/Autocomplete'
 import TextWithBtns from './components/TextWithBtns/TextWithBtns'
 
+// Красоту не стал наводить, извините, кажется в этих задачах это не главное
+
 function App() {
   return (
     <div className='App'>
