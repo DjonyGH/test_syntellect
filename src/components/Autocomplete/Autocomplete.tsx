@@ -52,12 +52,12 @@ const Autocomplete: React.FC<IProps> = ({ maxItems = 3, minSearchLength = 2 }) =
     <div className={styles.container}>
       {selectedItem ? (
         <div className={styles.item}>
-          <img src={selectedItem?.flag} />
+          <img src={selectedItem.flag} />
           <div>
             <div>
-              <b>{selectedItem?.fullName}</b>
+              <b>{selectedItem.fullName}</b>
             </div>
-            <div>{selectedItem?.name}</div>
+            <div>{selectedItem.name}</div>
           </div>
           <div className={styles.close} onClick={() => handleClearItem()}>
             x

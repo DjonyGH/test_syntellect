@@ -4,6 +4,7 @@ import Autocomplete from './components/Autocomplete/Autocomplete'
 import TextWithBtns from './components/TextWithBtns/TextWithBtns'
 
 // Красоту не стал наводить, извините, кажется в этих задачах это не главное
+// В mobx надобности тоже не увидел, но если есть необходимость, можно все локальные стейты вынесты в mobx
 
 function App() {
   return (
